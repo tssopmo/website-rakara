@@ -1,0 +1,2156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Komik RAKARA — Where Culture Comes to Play</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Literata:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root{
+    --bg:#150B05;
+    --bg2:#1d0d05;
+    --card:#2b160b;
+    --gold:#ffb627;
+    --gold-light:#ffd36a;
+    --cream:#fff6e8;
+    --cream-soft:#f3dfc2;
+    --line:rgba(255,182,39,.18);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Baloo 2',sans-serif;
+    background:var(--bg);
+    color:var(--cream);
+    overflow-x:hidden;
+    position:relative;
+}
+
+
+/* =========================================================
+   BATIK BACKGROUND
+========================================================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:-120px;
+    pointer-events:none;
+    z-index:0;
+
+    opacity:.09;
+
+    background-color:#150B05;
+
+    background-image:
+
+        radial-gradient(
+            ellipse 34px 48px at 25px 25px,
+            transparent 0 48%,
+            rgba(255,182,39,.75) 50%,
+            transparent 54%
+        ),
+
+        radial-gradient(
+            ellipse 34px 48px at 75px 25px,
+            transparent 0 48%,
+            rgba(255,182,39,.75) 50%,
+            transparent 54%
+        ),
+
+        radial-gradient(
+            ellipse 34px 48px at 25px 75px,
+            transparent 0 48%,
+            rgba(255,182,39,.75) 50%,
+            transparent 54%
+        ),
+
+        radial-gradient(
+            ellipse 34px 48px at 75px 75px,
+            transparent 0 48%,
+            rgba(255,182,39,.75) 50%,
+            transparent 54%
+        );
+
+    background-size:100px 100px;
+
+    animation:kawungMove 45s linear infinite;
+}
+
+@keyframes kawungMove{
+
+    from{
+        background-position:0 0;
+    }
+
+    to{
+        background-position:100px 100px;
+    }
+
+}
+
+
+/* =========================================================
+   BATIK FLOATING LIGHT
+========================================================= */
+
+.batik-glow{
+    position:fixed;
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,182,39,.10),
+            transparent 70%
+        );
+
+    pointer-events:none;
+    z-index:0;
+
+    filter:blur(20px);
+
+    animation:glowMove 12s ease-in-out infinite alternate;
+}
+
+.batik-glow.one{
+    top:-200px;
+    left:-200px;
+}
+
+.batik-glow.two{
+    bottom:-250px;
+    right:-200px;
+    animation-delay:3s;
+}
+
+@keyframes glowMove{
+
+    from{
+        transform:translate(0,0) scale(1);
+    }
+
+    to{
+        transform:translate(80px,60px) scale(1.2);
+    }
+
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+
+    background:rgba(21,11,5,.92);
+
+    backdrop-filter:blur(10px);
+
+    border-bottom:
+        1px solid rgba(255,182,39,.15);
+}
+
+nav.wrap{
+    width:min(1200px,92%);
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    height:74px;
+}
+
+
+/* LOGO */
+
+.brandmark{
+    display:flex;
+    align-items:center;
+
+    width:140px;
+    height:58px;
+
+    flex-shrink:0;
+}
+
+.brandmark img{
+    width:140px;
+    height:58px;
+
+    max-width:140px;
+    max-height:58px;
+
+    object-fit:contain;
+
+    display:block;
+
+    transition:
+        transform .3s ease,
+        filter .3s ease;
+}
+
+.brandmark:hover img{
+    transform:scale(1.06);
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(255,182,39,.45)
+        );
+}
+
+
+/* MENU */
+
+.navlinks{
+    display:flex;
+    align-items:center;
+
+    gap:28px;
+
+    list-style:none;
+
+    font-size:14.5px;
+    font-weight:600;
+}
+
+.navlinks a{
+    color:var(--cream);
+
+    text-decoration:none;
+
+    transition:
+        color .2s ease,
+        transform .2s ease;
+}
+
+.navlinks a:hover{
+    color:var(--gold);
+
+    transform:translateY(-2px);
+}
+
+
+/* BUTTON */
+
+.navcta{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:10px 18px;
+
+    border:
+        1px solid
+        rgba(255,182,39,.35);
+
+    border-radius:999px;
+
+    color:var(--gold);
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+}
+
+.navcta:hover{
+
+    transform:translateY(-3px);
+
+    background:
+        rgba(255,182,39,.1);
+
+    box-shadow:
+        0 10px 25px
+        rgba(255,182,39,.12);
+}
+
+
+/* MOBILE */
+
+.navtoggle{
+    display:none;
+
+    width:42px;
+    height:42px;
+
+    border:
+        1px solid
+        rgba(255,182,39,.25);
+
+    border-radius:10px;
+
+    background:transparent;
+}
+
+.navtoggle span{
+    display:block;
+
+    width:20px;
+    height:2px;
+
+    margin:4px auto;
+
+    background:var(--gold);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    min-height:
+        calc(100vh - 74px);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    position:relative;
+
+    padding:
+        100px 20px
+        120px;
+
+    z-index:1;
+
+    overflow:hidden;
+}
+
+
+
+/* =========================================================
+   BATIK STORY BACKGROUND
+========================================================= */
+
+.hero-pattern{
+
+    position:absolute;
+
+    width:min(900px,90vw);
+    height:min(900px,90vw);
+
+    top:50%;
+    left:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    background-image:
+        url("background komik.png");
+
+    background-size:
+        contain;
+
+    background-position:
+        center;
+
+    background-repeat:
+        no-repeat;
+
+    opacity:.16;
+
+    pointer-events:none;
+
+    z-index:0;
+
+    filter:
+        drop-shadow(
+            0 0 35px
+            rgba(255,182,39,.08)
+        );
+
+    animation:
+        patternFloat 8s
+        ease-in-out
+        infinite alternate;
+}
+
+
+/* FLOATING */
+
+@keyframes patternFloat{
+
+    0%{
+        transform:
+            translate(-50%,-50%)
+            scale(.94)
+            translateY(12px);
+    }
+
+    50%{
+        transform:
+            translate(-50%,-50%)
+            scale(1)
+            translateY(-8px);
+    }
+
+    100%{
+        transform:
+            translate(-50%,-50%)
+            scale(1.04)
+            translateY(5px);
+    }
+
+}
+
+
+/* LIGHT PULSE */
+
+.hero-pattern::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(255,182,39,.20),
+            transparent 55%
+        );
+
+    filter:blur(40px);
+
+    opacity:.5;
+
+    animation:
+        patternGlow 4s
+        ease-in-out
+        infinite alternate;
+}
+
+@keyframes patternGlow{
+
+    from{
+        opacity:.25;
+        transform:scale(.9);
+    }
+
+    to{
+        opacity:.65;
+        transform:scale(1.12);
+    }
+
+}
+
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:900px;
+
+}
+
+
+.eyebrow{
+
+    display:inline-block;
+
+    color:var(--gold);
+
+    letter-spacing:
+        .18em;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    margin-bottom:18px;
+
+    opacity:0;
+
+    animation:
+        heroReveal .9s .2s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+
+.hero h1{
+
+    font-family:'Literata',serif;
+
+    font-size:
+        clamp(48px,8vw,100px);
+
+    line-height:.95;
+
+    margin-bottom:28px;
+
+    opacity:0;
+
+    transform:
+        translateY(50px)
+        scale(.9);
+
+    animation:
+        heroReveal 1.2s .35s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+
+.hero h1 span{
+
+    color:var(--gold);
+
+    text-shadow:
+        0 0 40px
+        rgba(255,182,39,.22);
+}
+
+
+.hero p{
+
+    max-width:650px;
+
+    margin:auto;
+
+    color:var(--cream-soft);
+
+    font-family:'Literata',serif;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+    animation:
+        heroReveal .9s .65s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+
+.hero-scroll{
+
+    position:absolute;
+
+    bottom:35px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:var(--gold);
+
+    font-size:13px;
+
+    opacity:0;
+
+    animation:
+        heroScroll 1s 1.2s forwards,
+        scrollPulse 2s 2.2s infinite;
+}
+
+@keyframes heroReveal{
+
+    to{
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+@keyframes heroScroll{
+
+    to{
+        opacity:.7;
+    }
+
+}
+
+@keyframes scrollPulse{
+
+    0%,100%{
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+
+    50%{
+        transform:
+            translateX(-50%)
+            translateY(8px);
+    }
+
+}
+
+
+/* =========================================================
+   COMIC SECTION
+========================================================= */
+
+.comic-section{
+
+    position:relative;
+
+    z-index:2;
+
+    width:min(1000px,92%);
+
+    margin:auto;
+
+    padding:
+        100px 0
+        160px;
+}
+
+
+/* SECTION TITLE */
+
+.section-heading{
+
+    text-align:center;
+
+    margin-bottom:70px;
+}
+
+.section-heading .small{
+
+    color:var(--gold);
+
+    font-size:13px;
+
+    letter-spacing:.16em;
+
+    text-transform:uppercase;
+
+    font-weight:700;
+}
+
+.section-heading h2{
+
+    font-family:'Literata',serif;
+
+    font-size:
+        clamp(32px,5vw,58px);
+
+    margin-top:10px;
+}
+
+.section-heading p{
+
+    color:var(--cream-soft);
+
+    max-width:600px;
+
+    margin:
+        15px auto 0;
+
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   COMIC ITEM
+========================================================= */
+
+.comic-item{
+
+    position:relative;
+
+    margin-bottom:110px;
+
+    opacity:0;
+
+    transform:
+        translateY(100px)
+        scale(.92)
+        rotateX(8deg);
+
+    filter:blur(8px);
+
+    transition:
+        opacity 1s cubic-bezier(.2,.8,.2,1),
+        transform 1.1s cubic-bezier(.2,.8,.2,1),
+        filter 1s ease;
+}
+
+.comic-item.show{
+
+    opacity:1;
+
+    transform:
+        translateY(0)
+        scale(1)
+        rotateX(0);
+
+    filter:blur(0);
+}
+
+
+/* NUMBER */
+
+.comic-number{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:20px;
+
+    color:var(--gold);
+
+    font-weight:700;
+
+    letter-spacing:.1em;
+
+    font-size:14px;
+}
+
+.comic-number::after{
+
+    content:"";
+
+    height:1px;
+
+    flex:1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,182,39,.5),
+            transparent
+        );
+}
+
+
+/* IMAGE */
+
+.comic-frame{
+
+    position:relative;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    background:#0e0704;
+
+    border:
+        1px solid
+        rgba(255,182,39,.18);
+
+    box-shadow:
+        0 30px 70px
+        rgba(0,0,0,.4);
+
+    transition:
+        transform .5s cubic-bezier(.2,.8,.2,1),
+        box-shadow .5s ease;
+}
+
+
+.comic-frame:hover{
+
+    transform:
+        translateY(-10px)
+        scale(1.015);
+
+    box-shadow:
+        0 45px 90px
+        rgba(0,0,0,.6),
+        0 0 45px
+        rgba(255,182,39,.12);
+}
+
+
+.comic-frame::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 20%,
+            rgba(255,255,255,.12) 50%,
+            transparent 80%
+        );
+
+    transform:
+        translateX(-120%);
+
+    transition:
+        transform .9s ease;
+
+    pointer-events:none;
+}
+
+
+.comic-frame:hover::after{
+
+    transform:
+        translateX(120%);
+}
+
+
+.comic-frame img{
+
+    display:block;
+
+    width:100%;
+
+    height:auto;
+
+    transition:
+        transform .8s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+
+.comic-frame:hover img{
+
+    transform:scale(1.025);
+}
+
+
+/* CLICK TEXT */
+
+.comic-hint{
+
+    position:absolute;
+
+    right:18px;
+
+    bottom:18px;
+
+    padding:
+        7px 13px;
+
+    border-radius:999px;
+
+    background:
+        rgba(21,11,5,.85);
+
+    backdrop-filter:blur(8px);
+
+    color:var(--gold);
+
+    font-size:12px;
+
+    opacity:.75;
+
+    transition:
+        opacity .3s ease;
+}
+
+.comic-frame:hover .comic-hint{
+    opacity:1;
+}
+
+
+/* =========================================================
+   COMIC CAPTION
+========================================================= */
+
+.comic-caption{
+
+    padding:
+        25px 10px 0;
+
+    text-align:center;
+}
+
+.comic-caption h3{
+
+    font-family:'Literata',serif;
+
+    font-size:24px;
+
+    margin-bottom:7px;
+}
+
+.comic-caption p{
+
+    color:var(--cream-soft);
+
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   READING PROGRESS
+========================================================= */
+
+.read-progress{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    height:3px;
+
+    width:0%;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold),
+            var(--gold-light)
+        );
+
+    box-shadow:
+        0 0 15px
+        rgba(255,182,39,.7);
+
+    z-index:100;
+}
+
+
+/* =========================================================
+   FULLSCREEN VIEWER
+========================================================= */
+
+.viewer{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:200;
+
+    background:
+        rgba(8,4,2,.96);
+
+    backdrop-filter:blur(15px);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:30px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:
+        opacity .4s ease,
+        visibility .4s ease;
+}
+
+
+.viewer.active{
+
+    opacity:1;
+
+    visibility:visible;
+}
+
+
+.viewer img{
+
+    max-width:
+        min(1000px,95vw);
+
+    max-height:90vh;
+
+    object-fit:contain;
+
+    border-radius:12px;
+
+    box-shadow:
+        0 40px 100px
+        rgba(0,0,0,.7);
+
+    transform:
+        scale(.9);
+
+    transition:
+        transform .5s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+
+.viewer.active img{
+
+    transform:scale(1);
+}
+
+
+.viewer-close{
+
+    position:absolute;
+
+    top:25px;
+    right:30px;
+
+    width:45px;
+    height:45px;
+
+    border:
+        1px solid
+        rgba(255,182,39,.3);
+
+    border-radius:50%;
+
+    background:
+        rgba(21,11,5,.8);
+
+    color:var(--gold);
+
+    font-size:25px;
+
+    cursor:pointer;
+}
+
+
+.viewer-label{
+
+    position:absolute;
+
+    bottom:25px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:var(--cream-soft);
+
+    font-size:13px;
+}
+
+
+/* =========================================================
+   ENDING
+========================================================= */
+
+.ending{
+
+    position:relative;
+
+    z-index:2;
+
+    text-align:center;
+
+    padding:
+        120px 20px
+        150px;
+
+    overflow:hidden;
+}
+
+
+.ending::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,182,39,.12),
+            transparent 65%
+        );
+
+    filter:blur(30px);
+
+    pointer-events:none;
+}
+
+
+.ending-content{
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+.ending h2{
+
+    font-family:'Literata',serif;
+
+    font-size:
+        clamp(40px,7vw,80px);
+
+    margin-bottom:20px;
+}
+
+
+.ending h2 span{
+
+    color:var(--gold);
+}
+
+
+.ending p{
+
+    max-width:600px;
+
+    margin:auto;
+
+    color:var(--cream-soft);
+
+    font-size:18px;
+
+    line-height:1.8;
+}
+
+
+/* BUTTONS */
+
+.ending-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin-top:35px;
+
+    flex-wrap:wrap;
+}
+
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:
+        13px 22px;
+
+    border-radius:999px;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.btn-primary{
+
+    background:var(--gold);
+
+    color:#1b0d05;
+
+    box-shadow:
+        0 10px 30px
+        rgba(255,182,39,.18);
+}
+
+
+.btn-secondary{
+
+    border:
+        1px solid
+        rgba(255,182,39,.3);
+
+    color:var(--gold);
+}
+
+
+.btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    position:relative;
+
+    z-index:2;
+
+    border-top:
+        1px solid
+        rgba(255,182,39,.12);
+
+    padding:
+        30px 20px;
+
+    text-align:center;
+
+    color:
+        rgba(255,246,232,.55);
+
+    font-size:13px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:900px){
+
+    nav.wrap{
+        height:70px;
+    }
+
+    .brandmark,
+    .brandmark img{
+
+        width:120px;
+        max-width:120px;
+
+        height:52px;
+        max-height:52px;
+    }
+
+    .navlinks,
+    .navcta{
+        display:none;
+    }
+
+    .navtoggle{
+        display:block;
+    }
+
+    .hero{
+
+        min-height:
+            calc(100vh - 70px);
+
+        padding:
+            80px 20px
+            100px;
+    }
+
+    .comic-section{
+
+        width:94%;
+
+        padding:
+            70px 0
+            100px;
+    }
+
+    .comic-item{
+
+        margin-bottom:80px;
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .hero h1{
+        font-size:52px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .comic-frame{
+        border-radius:15px;
+    }
+
+    .comic-caption h3{
+        font-size:21px;
+    }
+
+    .viewer{
+        padding:15px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        transition-duration:.01ms !important;
+
+        scroll-behavior:auto !important;
+    }
+
+}
+
+/* =========================================================
+   STORY PARTICLES
+========================================================= */
+
+.story-particles{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:1;
+
+}
+
+.story-particles span{
+
+    position:absolute;
+
+    color:var(--gold);
+
+    font-size:
+        clamp(12px,2vw,22px);
+
+    opacity:0;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(255,182,39,.7)
+        );
+
+    animation:
+        particleFloat
+        var(--duration)
+        ease-in-out
+        infinite;
+
+    animation-delay:
+        var(--delay);
+}
+
+
+/* POSITIONS */
+
+.story-particles span:nth-child(1){
+    left:18%;
+    top:35%;
+    --duration:5s;
+    --delay:0s;
+}
+
+.story-particles span:nth-child(2){
+    left:27%;
+    top:58%;
+    --duration:7s;
+    --delay:1s;
+}
+
+.story-particles span:nth-child(3){
+    left:76%;
+    top:30%;
+    --duration:6s;
+    --delay:2s;
+}
+
+.story-particles span:nth-child(4){
+    left:82%;
+    top:55%;
+    --duration:5s;
+    --delay:.5s;
+}
+
+.story-particles span:nth-child(5){
+    left:68%;
+    top:68%;
+    --duration:8s;
+    --delay:2.5s;
+}
+
+.story-particles span:nth-child(6){
+    left:34%;
+    top:28%;
+    --duration:6s;
+    --delay:1.5s;
+}
+
+.story-particles span:nth-child(7){
+    left:60%;
+    top:20%;
+    --duration:7s;
+    --delay:3s;
+}
+
+.story-particles span:nth-child(8){
+    left:43%;
+    top:72%;
+    --duration:5s;
+    --delay:1s;
+}
+
+
+@keyframes particleFloat{
+
+    0%{
+        opacity:0;
+        transform:
+            translateY(30px)
+            scale(.4);
+    }
+
+    25%{
+        opacity:.8;
+    }
+
+    50%{
+        transform:
+            translateY(-25px)
+            scale(1);
+    }
+
+    75%{
+        opacity:.5;
+    }
+
+    100%{
+        opacity:0;
+        transform:
+            translateY(-60px)
+            scale(.5);
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- BACKGROUND LIGHT -->
+
+<div class="batik-glow one"></div>
+<div class="batik-glow two"></div>
+
+
+<!-- READING PROGRESS -->
+
+<div class="read-progress" id="readProgress"></div>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="wrap">
+
+    <a href="index.html" class="brandmark">
+        <img
+            src="rakara mantap.png"
+            alt="RAKARA"
+        >
+    </a>
+
+
+    <ul class="navlinks">
+
+        <li>
+            <a href="index.html">
+                Beranda
+            </a>
+        </li>
+
+        <li>
+            <a href="detail produk.html">
+                Produk
+            </a>
+        </li>
+
+        <li>
+            <a href="gallery.html">
+                Gallery
+            </a>
+        </li>
+
+        <li>
+            <a href="komik.html">
+                Komik
+            </a>
+        </li>
+
+    </ul>
+
+
+    <a
+        href="detail produk.html"
+        class="navcta"
+    >
+        Pesan Sekarang
+    </a>
+
+
+    <button
+        class="navtoggle"
+        id="navtoggle"
+        aria-label="Buka menu"
+    >
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+</nav>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-pattern"></div>
+    <div class="story-particles">
+    <span>✦</span>
+    <span>✧</span>
+    <span>✦</span>
+    <span>·</span>
+    <span>✧</span>
+    <span>✦</span>
+    <span>·</span>
+    <span>✧</span>
+</div>
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            RAKARA COMIC EXPERIENCE
+        </div>
+
+
+        <h1>
+            Sebuah Cerita<br>
+            dari <span>Batik.</span>
+        </h1>
+
+
+        <p>
+            Yuk masuk ke dalam dunia RAKARA.
+            Kenali tokoh, budaya, dan cerita
+            di balik setiap motif batik melalui
+            sebuah petualangan kecil.
+        </p>
+
+    </div>
+
+
+    <div class="hero-scroll">
+        ↓ &nbsp; Scroll untuk membaca
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     COMIC
+===================================================== -->
+
+<section class="comic-section">
+
+    <div class="section-heading">
+
+        <div class="small">
+            RAKARA STORY
+        </div>
+
+        <h2>
+            Petualangan Dimulai
+        </h2>
+
+        <p>
+            Setiap halaman punya cerita.
+            Ini merupakan awal dari semuanya.
+        </p>
+
+    </div>
+
+
+
+    <!-- ================= PAGE 01 ================= -->
+
+    <article class="comic-item">
+
+        <div class="comic-number">
+            01 / AWAL PETUALANGAN
+        </div>
+
+        <div
+            class="comic-frame"
+            data-image="comic-01.png"
+        >
+
+            <img
+                src="komik hal 1.png"
+                alt="Komik RAKARA halaman 1"
+                loading="lazy"
+            >
+
+            <div class="comic-hint">
+                Klik untuk memperbesar
+            </div>
+
+        </div>
+
+
+        <div class="comic-caption">
+
+            <h3>
+                Semuanya Dimulai dari Sini
+            </h3>
+
+            <p>
+                Sebuah perjalanan kecil untuk
+                mengenal lebih dalam tentang seorang anak muda
+                pemberani.
+            </p>
+
+        </div>
+
+    </article>
+
+
+
+    <!-- ================= PAGE 02 ================= -->
+
+    <article class="comic-item">
+
+        <div class="comic-number">
+            02 / KEKACAUAN
+        </div>
+
+        <div
+            class="comic-frame"
+            data-image="comic-02.png"
+        >
+
+            <img
+                src="komik hal 2.png"
+                alt="Komik RAKARA halaman 2"
+                loading="lazy"
+            >
+
+            <div class="comic-hint">
+                Klik untuk memperbesar
+            </div>
+
+        </div>
+
+
+        <div class="comic-caption">
+
+            <h3>
+                Siapa itu?
+            </h3>
+
+            <p>
+                Dapatkah Aksa bisa menaklukan Monster yang berada di monas itu?
+            </p>
+
+        </div>
+
+    </article>
+
+
+
+    <!-- ================= PAGE 03 ================= -->
+
+    <article class="comic-item">
+
+        <div class="comic-number">
+            03 / APA YANG TERJADI?
+        </div>
+
+        <div
+            class="comic-frame"
+            data-image="comic-03.png"
+        >
+
+            <img
+                src="komik hal 3.png"
+                alt="Komik RAKARA halaman 3"
+                loading="lazy"
+            >
+
+            <div class="comic-hint">
+                Klik untuk memperbesar
+            </div>
+
+        </div>
+
+
+        <div class="comic-caption">
+
+            <h3>
+                Akhir dari sebuah cerita?
+            </h3>
+
+            <p>
+                Akankah Aksa bisa melindungi seluruh warga Jakarta?
+            </p>
+
+        </div>
+
+    </article>
+
+
+    <!-- ================= PAGE 06 ================= -->
+
+    <article class="comic-item">
+
+        <div class="comic-number">
+            04 / Coming Soon...
+        </div>
+
+        <div
+            class="comic-frame"
+            data-image="comic-06.png"
+        >
+
+            <img
+                src="akhir komik.png"
+                alt="Komik RAKARA halaman 6"
+                loading="lazy"
+            >
+
+            <div class="comic-hint">
+                Klik untuk memperbesar
+            </div>
+
+        </div>
+
+
+        <div class="comic-caption">
+
+            <h3>
+                Tapi Ceritanya Belum Selesai...
+            </h3>
+
+            <p>
+                Pantau terus pertualangan Aksa untuk bisa menyelamatkan
+                warga Jakarta bahkan Dunia!
+            </p>
+
+        </div>
+
+    </article>
+
+</section>
+
+
+
+<!-- =====================================================
+     ENDING
+===================================================== -->
+
+<section class="ending">
+
+    <div class="ending-content">
+
+        <h2>
+            Cerita belum <span>selesai.</span>
+        </h2>
+
+        <p>
+            Sekarang giliran kamu untuk
+            bermain, berkarya, dan membuat
+            cerita sendiri bersama RAKARA.
+        </p>
+
+
+        <div class="ending-buttons">
+
+            <a
+                href="detail produk.html"
+                class="btn btn-primary"
+            >
+                Jelajahi Produk
+            </a>
+
+
+            <a
+                href="gallery.html"
+                class="btn btn-secondary"
+            >
+                Lihat Karya
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    RAKARA — Where Culture Comes to Play.<br>
+
+    SMA Pesantren Unggul Al Bayan —
+    Kabupaten Sukabumi, Jawa Barat
+
+</footer>
+
+
+
+<!-- =====================================================
+     FULLSCREEN VIEWER
+===================================================== -->
+
+<div
+    class="viewer"
+    id="viewer"
+>
+
+    <button
+        class="viewer-close"
+        id="viewerClose"
+    >
+        ×
+    </button>
+
+
+    <img
+        id="viewerImage"
+        src=""
+        alt="Comic fullscreen"
+    >
+
+
+    <div class="viewer-label">
+        Klik × atau tekan ESC untuk keluar
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const comicItems =
+    document.querySelectorAll('.comic-item');
+
+
+const observer =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add('show');
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:.15
+        }
+
+    );
+
+
+comicItems.forEach(item => {
+
+    observer.observe(item);
+
+});
+
+
+
+/* =========================================================
+   READING PROGRESS
+========================================================= */
+
+const progress =
+    document.getElementById(
+        'readProgress'
+    );
+
+
+window.addEventListener(
+    'scroll',
+    () => {
+
+        const scrollTop =
+            window.scrollY;
+
+        const height =
+            document.documentElement
+                .scrollHeight
+            -
+            window.innerHeight;
+
+        const percent =
+            (scrollTop / height) * 100;
+
+        progress.style.width =
+            percent + '%';
+
+    }
+);
+
+
+
+/* =========================================================
+   FULLSCREEN COMIC
+========================================================= */
+
+const viewer =
+    document.getElementById(
+        'viewer'
+    );
+
+const viewerImage =
+    document.getElementById(
+        'viewerImage'
+    );
+
+const viewerClose =
+    document.getElementById(
+        'viewerClose'
+    );
+
+
+document
+    .querySelectorAll('.comic-frame')
+    .forEach(frame => {
+
+        frame.addEventListener(
+            'click',
+            () => {
+
+                const image =
+                    frame.dataset.image;
+
+                viewerImage.src =
+                    image;
+
+                viewer.classList.add(
+                    'active'
+                );
+
+                document.body.style.overflow =
+                    'hidden';
+
+            }
+        );
+
+    });
+
+
+function closeViewer(){
+
+    viewer.classList.remove(
+        'active'
+    );
+
+    document.body.style.overflow =
+        '';
+
+}
+
+
+viewerClose.addEventListener(
+    'click',
+    closeViewer
+);
+
+
+viewer.addEventListener(
+    'click',
+    event => {
+
+        if(event.target === viewer){
+
+            closeViewer();
+
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    'keydown',
+    event => {
+
+        if(
+            event.key === 'Escape'
+        ){
+
+            closeViewer();
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const navtoggle =
+    document.getElementById(
+        'navtoggle'
+    );
+
+
+const navlinks =
+    document.querySelector(
+        '.navlinks'
+    );
+
+
+navtoggle.addEventListener(
+    'click',
+    () => {
+
+        const opened =
+            navlinks.style.display ===
+            'flex';
+
+        navlinks.style.display =
+            opened
+                ? 'none'
+                : 'flex';
+
+        navlinks.style.position =
+            'absolute';
+
+        navlinks.style.top =
+            '70px';
+
+        navlinks.style.left =
+            '0';
+
+        navlinks.style.right =
+            '0';
+
+        navlinks.style.padding =
+            '25px';
+
+        navlinks.style.flexDirection =
+            'column';
+
+        navlinks.style.background =
+            'rgba(21,11,5,.97)';
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>

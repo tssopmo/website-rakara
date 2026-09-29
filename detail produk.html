@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RAKARA Batik — Detail Produk & Koleksi Kit</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧵</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Literata:ital,opsz,wght@0,18..144,400;0,18..144,500;0,18..144,600;1,18..144,400;1,18..144,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#150B05;
+    --bg-soft:#20120A;
+    --bg-elevated:#2B180D;
+    --gold-light:#FFD65A;
+    --gold:#FFB627;
+    --gold-deep:#F5891E;
+    --cream:#FBF1DE;
+    --cream-soft:#CBB89A;
+    --maroon:#B5451C;
+    --line: rgba(255,182,39,0.20);
+    --line-soft: rgba(255,182,39,0.10);
+    box-sizing:border-box;
+  }
+  *{box-sizing:inherit;}
+  html{scroll-behavior:smooth; scroll-padding-top: calc(84px + env(safe-area-inset-top,0px)); height:100%;}
+  body{
+    margin:0; background:var(--bg); color:var(--cream);
+    font-family:'Literata', Georgia, 'Times New Roman', serif;
+    font-size:17px; line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    height:100%;
+    position:relative;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Baloo 2','Literata',sans-serif;
+    font-weight:700;
+    color:var(--cream);
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+  .gold-text{
+    background:linear-gradient(100deg, var(--gold-light), var(--gold-deep));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+
+  /* ambient + pattern */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:-20%;
+    pointer-events:none;
+    z-index:-3;
+    background:
+      radial-gradient(circle at 20% 25%, rgba(255,182,39,.075), transparent 25%),
+      radial-gradient(circle at 80% 70%, rgba(255,182,39,.045), transparent 28%);
+    animation: rakaraGlow 14s ease-in-out infinite alternate;
+  }
+  @keyframes rakaraGlow{
+    0%{ transform:translate3d(-2%, -1%, 0) scale(1); }
+    50%{ transform:translate3d(1%, 2%, 0) scale(1.025); }
+    100%{ transform:translate3d(2%, -1%, 0) scale(1.05); }
+  }
+  .rakara-pattern{
+    position:fixed; inset:-100px; pointer-events:none; z-index:0; opacity:0.075;
+    background-image:
+      radial-gradient(ellipse 24px 38px at 50% 50%, transparent 52%, rgba(255,182,39,.95) 54%, rgba(255,182,39,.95) 61%, transparent 63%),
+      radial-gradient(ellipse 24px 38px at 50% 50%, transparent 52%, rgba(255,182,39,.95) 54%, rgba(255,182,39,.95) 61%, transparent 63%),
+      radial-gradient(ellipse 38px 24px at 50% 50%, transparent 52%, rgba(255,182,39,.95) 54%, rgba(255,182,39,.95) 61%, transparent 63%),
+      radial-gradient(ellipse 38px 24px at 50% 50%, transparent 52%, rgba(255,182,39,.95) 54%, rgba(255,182,39,.95) 61%, transparent 63%),
+      radial-gradient(circle 7px at 50% 50%, rgba(255,182,39,1) 0%, rgba(255,182,39,.8) 45%, transparent 48%);
+    background-size:100px 100px;
+    background-position:0 0, 50px 50px, 50px 0, 0 50px, 25px 25px;
+    animation:rakaraBatikMove 55s linear infinite;
+  }
+  @keyframes rakaraBatikMove{
+    0%{ transform:translate(0,0); }
+    50%{ transform:translate(-35px,-35px); }
+    100%{ transform:translate(-70px,-70px); }
+  }
+
+  /* nav */
+  header{
+    position:sticky; top:0; z-index:40;
+    background:rgba(21,11,5,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line-soft);
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  nav.wrap{display:flex; align-items:center; justify-content:space-between; height:74px;}
+  .brandmark{display:flex; align-items:center; gap:10px; text-decoration:none;}
+  .brandmark img{
+    height:120px; width:auto; display:block;
+    transition:transform .25s ease, filter .25s ease;
+  }
+  .brandmark:hover img{
+    transform:scale(1.05);
+    filter:drop-shadow(0 0 8px rgba(255,182,39,.45));
+  }
+  .navlinks{display:flex; gap:28px; list-style:none; margin:0; padding:0; font-family:'Baloo 2',sans-serif; font-weight:600; font-size:14.5px;}
+  .navlinks a{text-decoration:none; color:var(--cream-soft); transition:color .15s ease; position:relative;}
+  .navlinks a:hover{color:var(--gold);}
+  .navlinks a::after{
+    content:""; position:absolute; left:0; bottom:-4px; width:0; height:1.5px; background:var(--gold);
+    transition:width .25s ease;
+  }
+  .navlinks a:hover::after{width:100%;}
+  .navcta{
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:14.5px;
+    background:linear-gradient(100deg, var(--gold-light), var(--gold-deep)); color:#241202;
+    padding:11px 22px; border-radius:100px; text-decoration:none; white-space:nowrap;
+  }
+  .navcta-mobile{display:none;}
+  .navtoggle{display:none; background:none; border:none; cursor:pointer; padding:8px;}
+  .navtoggle span{display:block; width:24px; height:2.5px; background:var(--gold); margin:5px 0; border-radius:2px;}
+
+  /* breadcrumb */
+  .breadcrumb{
+    padding:20px 0 8px;
+    font-family:'Baloo 2',sans-serif; font-size:13.5px; font-weight:600;
+    color:var(--cream-soft);
+  }
+  .breadcrumb a{text-decoration:none; color:var(--cream-soft); transition:color .15s;}
+  .breadcrumb a:hover{color:var(--gold);}
+  .breadcrumb .sep{margin:0 8px; opacity:.5;}
+  .breadcrumb .current{color:var(--gold);}
+
+  /* ===== SEKSI PILIHAN 3 PRODUK ===== */
+  .product-selector-section {
+    padding: 20px 0 40px;
+  }
+  .selector-title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .selector-title h2 {
+    font-size: clamp(26px, 3.5vw, 36px);
+    margin-bottom: 8px;
+  }
+  .selector-title p {
+    color: var(--cream-soft);
+    font-size: 16px;
+  }
+  
+  .product-options-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .product-card-option {
+    border: 2px solid var(--line);
+    border-radius: 20px;
+    background: var(--bg-soft);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+  }
+  .product-card-option:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,182,39,0.5);
+    box-shadow: 0 10px 25px -10px rgba(0,0,0,0.5);
+  }
+  .product-card-option.active {
+    border-color: var(--gold);
+    background: var(--bg-elevated);
+    box-shadow: 0 0 20px rgba(255,182,39,0.2);
+  }
+  .product-card-option .badge-pop {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    background: linear-gradient(100deg, var(--gold-light), var(--gold-deep));
+    color: #241202;
+    padding: 4px 12px;
+    border-radius: 100px;
+    text-transform: uppercase;
+  }
+  .product-card-option h3 {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+  .product-card-option .opt-desc {
+    font-size: 13.5px;
+    color: var(--cream-soft);
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+  .product-card-option .opt-price {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .product-card-option .btn-select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 100px;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    border: 1.5px solid var(--gold);
+    background: transparent;
+    color: var(--gold);
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+  .product-card-option.active .btn-select {
+    background: linear-gradient(100deg, var(--gold-light), var(--gold-deep));
+    color: #241202;
+    border-color: transparent;
+  }
+
+  /* ===== PRODUCT SHOP LAYOUT ===== */
+  .product-shop{
+    display:grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap:48px;
+    align-items:start;
+    padding:30px 0 56px;
+    border-top: 1px dashed var(--line);
+  }
+
+  /* gallery */
+  .gallery-main{
+    border:1.5px solid var(--line);
+    border-radius:22px;
+    overflow:hidden;
+    background:var(--bg-soft);
+    aspect-ratio:1/1;
+    position:relative;
+  }
+  .gallery-main img{
+    width:100%; height:100%; object-fit:cover;
+    transition:opacity .3s ease;
+  }
+  .gallery-badge{
+    position:absolute; top:16px; left:16px;
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:12.5px;
+    background:linear-gradient(100deg, var(--gold-light), var(--gold-deep));
+    color:#241202; padding:7px 14px; border-radius:100px;
+  }
+  .gallery-thumbs{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:14px;
+  }
+  .thumb{
+    border:1.5px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+    aspect-ratio:1/1;
+    cursor:pointer;
+    background:var(--bg-soft);
+    transition:border-color .2s ease, transform .2s ease;
+    padding:0; outline:none;
+  }
+  .thumb img{width:100%; height:100%; object-fit:cover;}
+  .thumb:hover, .thumb.active{
+    border-color:rgba(255,182,39,0.7);
+    transform:translateY(-2px);
+  }
+  .thumb.active{box-shadow:0 0 0 2px rgba(255,182,39,0.35);}
+
+  /* product info */
+  .product-info{position:sticky; top:98px;}
+  .product-eyebrow{
+    font-family:'Baloo 2',sans-serif; font-weight:700; color:var(--gold); font-size:14px; margin-bottom:8px;
+  }
+  .product-info h1{
+    font-size:clamp(26px, 3.4vw, 34px); line-height:1.2; margin-bottom:12px;
+  }
+  .product-rating{
+    display:flex; align-items:center; gap:10px; margin-bottom:18px;
+    font-family:'Baloo 2',sans-serif; font-size:14px; color:var(--cream-soft);
+  }
+  .stars{color:var(--gold); letter-spacing:2px;}
+  .product-price-row{
+    display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:8px;
+  }
+  .price-now{
+    font-family:'Baloo 2',sans-serif; font-weight:800; font-size:42px; line-height:1;
+    background:linear-gradient(100deg, var(--gold-light), var(--gold-deep));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .price-was{
+    font-family:'Baloo 2',sans-serif; font-weight:600; font-size:18px;
+    color:var(--cream-soft); text-decoration:line-through; opacity:.7;
+  }
+  .price-tag{
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:12.5px;
+    background:rgba(255,182,39,0.15); color:var(--gold);
+    padding:5px 12px; border-radius:100px; border:1px solid var(--line);
+  }
+  .product-lede{
+    color:var(--cream-soft); font-size:16px; margin:16px 0 22px; max-width:460px;
+  }
+
+  /* key chips */
+  .key-chips{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:26px;}
+  .chip{
+    font-family:'Baloo 2',sans-serif; font-weight:600; font-size:13px;
+    border:1.5px solid var(--line); border-radius:100px;
+    padding:8px 14px; background:var(--bg-soft); color:var(--cream-soft);
+    display:flex; align-items:center; gap:7px;
+  }
+  .chip svg{width:16px; height:16px; color:var(--gold); flex-shrink:0;}
+
+  /* qty + actions */
+  .buy-panel{
+    border:1.5px solid var(--line);
+    border-radius:20px;
+    padding:22px;
+    background:var(--bg-soft);
+    margin-bottom:22px;
+  }
+  .qty-row{
+    display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:14px;
+  }
+  .qty-label{font-family:'Baloo 2',sans-serif; font-weight:600; font-size:14.5px; color:var(--cream-soft);}
+  .qty-control{
+    display:flex; align-items:center; gap:0;
+    border:1.5px solid var(--line); border-radius:100px; overflow:hidden;
+    background:var(--bg);
+  }
+  .qty-btn{
+    width:42px; height:42px; border:none; background:transparent; color:var(--gold);
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:20px; cursor:pointer;
+    transition:background .15s, color .15s;
+    line-height:1;
+  }
+  .qty-btn:hover{background:rgba(255,182,39,0.12);}
+  .qty-btn:active{background:rgba(255,182,39,0.22);}
+  .qty-btn:disabled{opacity:.35; cursor:not-allowed;}
+  .qty-val{
+    min-width:44px; text-align:center;
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:17px; color:var(--cream);
+    user-select:none;
+  }
+  .subtotal-row{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:12px 0 16px; margin-bottom:4px;
+    border-top:1px solid var(--line-soft);
+    font-family:'Baloo 2',sans-serif;
+  }
+  .subtotal-row .label{font-weight:600; font-size:14px; color:var(--cream-soft);}
+  .subtotal-row .value{
+    font-weight:800; font-size:20px;
+    background:linear-gradient(100deg, var(--gold-light), var(--gold-deep));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .buy-actions{display:flex; flex-direction:column; gap:12px;}
+  .btn{
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:15.5px;
+    padding:15px 28px; border-radius:100px; text-decoration:none; text-align:center;
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    border:2px solid transparent; transition:transform .15s ease, background .15s ease, box-shadow .2s ease;
+    cursor:pointer; width:100%;
+  }
+  .btn-solid{
+    background:linear-gradient(100deg, var(--gold-light), var(--gold-deep)); color:#241202;
+    position:relative; overflow:hidden;
+  }
+  .btn-solid:hover{transform:translateY(-2px); box-shadow:0 10px 28px -10px rgba(255,182,39,.45);}
+  .btn-solid::after{
+    content:""; position:absolute; top:0; left:-60%; width:40%; height:100%;
+    background:linear-gradient(115deg, transparent, rgba(255,255,255,0.55), transparent);
+    transform:skewX(-20deg); transition:left .6s ease;
+  }
+  .btn-solid:hover::after{left:120%;}
+  .btn-outline{
+    background:transparent; color:var(--gold); border-color:var(--gold);
+  }
+  .btn-outline:hover{background:rgba(255,182,39,0.10); transform:translateY(-2px);}
+  .stock-note{
+    margin-top:14px; font-size:13.5px; color:var(--cream-soft);
+    display:flex; align-items:center; gap:8px;
+  }
+  .stock-dot{
+    width:8px; height:8px; border-radius:50%; background:#4ade80;
+    box-shadow:0 0 0 3px rgba(74,222,128,0.2);
+  }
+
+  /* trust mini */
+  .trust-mini{
+    display:grid; grid-template-columns:1fr 1fr; gap:12px;
+  }
+  .trust-mini-item{
+    font-family:'Baloo 2',sans-serif; font-weight:600; font-size:12.5px;
+    color:var(--cream-soft); display:flex; align-items:flex-start; gap:8px;
+  }
+  .trust-mini-item svg{width:18px; height:18px; color:var(--gold); flex-shrink:0; margin-top:1px;}
+
+  /* sections */
+  section{padding:56px 0;}
+  .section-head{max-width:640px; margin-bottom:36px;}
+  .section-head.center{margin-left:auto; margin-right:auto; text-align:center;}
+  .eyebrow-num{font-family:'Baloo 2',sans-serif; font-weight:700; color:var(--gold); font-size:15px; margin-bottom:10px;}
+  .section-head h2{font-size:clamp(24px,3vw,32px); line-height:1.2;}
+  .section-head p{color:var(--cream-soft); margin-top:12px; font-size:16px;}
+
+  /* what's in the box */
+  .inbox-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+  }
+  .inbox-card{
+    border:1.5px solid var(--line);
+    border-radius:18px;
+    padding:22px 18px;
+    background:var(--bg-soft);
+    text-align:center;
+    transition:transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+  }
+  .inbox-card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(255,182,39,0.55);
+    box-shadow:0 14px 30px -12px rgba(0,0,0,.55);
+  }
+  .inbox-icon{
+    width:48px; height:48px; margin:0 auto 14px;
+    border-radius:14px;
+    background:linear-gradient(135deg, rgba(255,182,39,0.2), rgba(245,137,30,0.12));
+    display:flex; align-items:center; justify-content:center;
+    color:var(--gold);
+  }
+  .inbox-icon svg{width:26px; height:26px;}
+  .inbox-card h3{font-size:15.5px; margin-bottom:6px;}
+  .inbox-card p{color:var(--cream-soft); font-size:13.5px; margin:0; line-height:1.5;}
+
+  /* specs table */
+  .specs-table{
+    border:1.5px solid var(--line);
+    border-radius:18px;
+    overflow:hidden;
+    background:var(--bg-soft);
+  }
+  .spec-row{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .spec-row:last-child{border-bottom:none;}
+  .spec-label{
+    font-family:'Baloo 2',sans-serif; font-weight:600; font-size:14.5px;
+    padding:16px 20px; color:var(--cream-soft); background:rgba(255,182,39,0.04);
+    border-right:1px solid var(--line-soft);
+  }
+  .spec-value{padding:16px 20px; font-size:15px; color:var(--cream);}
+
+  /* how it works steps */
+  .how-steps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+  }
+  .how-card{
+    border:1.5px solid var(--line);
+    border-radius:18px;
+    padding:26px;
+    background:var(--bg-soft);
+    position:relative;
+  }
+  .how-num{
+    width:36px; height:36px; border-radius:50%;
+    background:linear-gradient(100deg, var(--gold-light), var(--gold-deep));
+    color:#241202; display:flex; align-items:center; justify-content:center;
+    font-family:'Baloo 2',sans-serif; font-weight:800; font-size:15px; margin-bottom:14px;
+  }
+  .how-card h3{font-size:16.5px; margin-bottom:8px;}
+  .how-card p{color:var(--cream-soft); font-size:14.5px; margin:0;}
+
+  /* sticky buy bar */
+  .sticky-buy{
+    position:fixed; bottom:0; left:0; right:0; z-index:50;
+    background:rgba(21,11,5,0.96);
+    backdrop-filter:blur(12px);
+    border-top:1.5px solid var(--line);
+    padding:12px 18px calc(12px + env(safe-area-inset-bottom,0px));
+    transform:translateY(110%);
+    opacity:0;
+    pointer-events:none;
+    transition:transform .32s cubic-bezier(.2,.7,.3,1), opacity .28s ease;
+  }
+  .sticky-buy.visible{
+    transform:translateY(0);
+    opacity:1;
+    pointer-events:auto;
+  }
+  .sticky-buy-inner{
+    max-width:1080px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
+  }
+  .sticky-left{
+    display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+  }
+  .sticky-meta .name{
+    font-family:'Baloo 2',sans-serif; font-weight:600; font-size:13px; color:var(--cream-soft);
+  }
+  .sticky-price{
+    font-family:'Baloo 2',sans-serif; font-weight:800; font-size:22px; line-height:1.1;
+    background:linear-gradient(100deg, var(--gold-light), var(--gold-deep));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .sticky-qty{
+    display:flex; align-items:center; gap:0;
+    border:1.5px solid var(--line); border-radius:100px; overflow:hidden;
+    background:var(--bg-soft);
+  }
+  .sticky-qty .qty-btn{
+    width:36px; height:36px; font-size:18px;
+  }
+  .sticky-qty .qty-val{
+    min-width:36px; font-size:15px;
+  }
+  .sticky-buy .btn{
+    width:auto; padding:12px 24px; font-size:14.5px; flex-shrink:0;
+  }
+  body.has-sticky-buy{ padding-bottom:88px; }
+
+  /* footer */
+  footer{border-top:1.5px solid var(--line); padding:36px 0; background:var(--bg-soft); margin-top:40px;}
+  .foot-grid{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:26px;}
+  .foot-brand{font-family:'Baloo 2',sans-serif; font-weight:700; font-size:19px; color:var(--gold);}
+  .foot-meta{font-size:14px; color:var(--cream-soft); margin-top:6px; line-height:1.7;}
+  .foot-links{display:flex; gap:22px; font-family:'Baloo 2',sans-serif; font-weight:600; font-size:14px;}
+  .foot-links a{text-decoration:none; color:var(--cream-soft);}
+  .foot-links a:hover{color:var(--gold);}
+  .foot-copy{font-size:13px; color:var(--cream-soft); margin-top:26px; opacity:.7;}
+
+  /* kawung divider */
+  .kawung{width:100%; height:26px; overflow:hidden;}
+  .kawung svg{width:100%; height:100%; display:block;}
+
+  /* responsive */
+  @media (max-width: 900px){
+    .product-options-grid{grid-template-columns:1fr;}
+    .product-shop{grid-template-columns:1fr; gap:32px;}
+    .product-info{position:static;}
+    .inbox-grid{grid-template-columns:1fr 1fr;}
+    .how-steps{grid-template-columns:1fr;}
+  }
+  @media (max-width: 520px){
+    .sticky-left{gap:10px;}
+    .sticky-meta{display:none;}
+    .sticky-buy .btn{flex:1; min-width:0;}
+  }
+  @media (max-width: 700px){
+    .navlinks{
+      position:fixed; inset:74px 0 0 0; background:var(--bg); flex-direction:column;
+      padding:30px 28px; gap:22px; font-size:19px; transform:translateX(100%);
+      transition:transform .25s ease; border-top:1px solid var(--line-soft); z-index:30;
+    }
+    .navlinks.open{transform:translateX(0);}
+    .navtoggle{display:block;}
+    .navcta{display:none;}
+    .navlinks .navcta-mobile{
+      display:inline-block;
+      font-family:'Baloo 2',sans-serif; font-weight:700;
+      background:linear-gradient(100deg, var(--gold-light), var(--gold-deep));
+      color:#241202; padding:12px 22px; border-radius:100px;
+      text-decoration:none; width:fit-content;
+    }
+    .gallery-thumbs{grid-template-columns:repeat(4,1fr); gap:8px;}
+    .trust-mini{grid-template-columns:1fr;}
+    .spec-row{grid-template-columns:1fr;}
+    .spec-label{border-right:none; border-bottom:1px solid var(--line-soft); padding-bottom:6px;}
+    .inbox-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="rakara-pattern"></div>
+
+<header>
+  <nav class="wrap">
+    <a href="index.html" class="brandmark"><img src="assets/rakara mantap.png" alt="RAKARA"></a>
+    <ul class="navlinks" id="navlinks">
+      <li><a href="#edukasi">Edukasi</a></li>
+      <li><a href="detail produk.html">Produk</a></li>
+      <li><a href="#kenapa">Kenapa RAKARA</a></li>
+      <li><a href="#harga">Harga</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="komik.html">Komik</a></li>
+      <li><a href="#kontak" class="navcta-mobile">Pesan Sekarang</a></li>
+    </ul>
+    <a href="detail produk.html" class="navcta">Pesan Sekarang</a>
+    <button class="navtoggle" id="navtoggle" aria-label="Buka menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Beranda</a>
+    <span class="sep">/</span>
+    <a href="index.html#produk">Produk</a>
+    <span class="sep">/</span>
+    <span class="current" id="breadCurrent">RAKARA Batik — Experience Box</span>
+  </nav>
+
+  <!-- SEKSI PILIHAN 3 PRODUK -->
+  <section class="product-selector-section" id="produk-pilihan">
+    <div class="selector-title">
+      <h2>Pilih Paket RAKARA Anda</h2>
+      <p>Tersedia 3 tingkat pengalaman budaya yang dirancang sesuai kebutuhan si kecil.</p>
+    </div>
+
+    <div class="product-options-grid">
+      <!-- Produk 1 -->
+      <div class="product-card-option" data-pid="p1" onclick="selectProduct('p1')">
+        <div>
+          <h3>Pemula Kit</h3>
+          <p class="opt-desc">Paket pengenalan dasar membatik tanpa komik hero. Cocok untuk uji coba singkat.</p>
+        </div>
+        <div>
+          <div class="opt-price">Rp89.000</div>
+          <button type="button" class="btn-select">Pilih Paket Ini</button>
+        </div>
+      </div>
+
+      <!-- Produk 2 (Default / Best Seller) -->
+      <div class="product-card-option active" data-pid="p2" onclick="selectProduct('p2')">
+        <span class="badge-pop">Paling Populer</span>
+        <div>
+          <h3>Experience Box</h3>
+          <p class="opt-desc">Paket edukasi lengkap: alat membatik, komik petualangan hero, dan akses QR digital.</p>
+        </div>
+        <div>
+          <div class="opt-price">Rp139.000</div>
+          <button type="button" class="btn-select">Pilih Paket Ini</button>
+        </div>
+      </div>
+
+      <!-- Produk 3 -->
+      <div class="product-card-option" data-pid="p3" onclick="selectProduct('p3')">
+        <span class="badge-pop" style="background:#B5451C; color:#fff;">Edisi Spesial</span>
+        <div>
+          <h3>Master Bundling</h3>
+          <p class="opt-desc">Paket lengkap + 2 kain pola ekstra &amp; patung collectible hero 3D edisi khusus.</p>
+        </div>
+        <div>
+          <div class="opt-price">Rp219.000</div>
+          <button type="button" class="btn-select">Pilih Paket Ini</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP PRODUCT (DETAIL DARI PRODUK YANG DIPILIH) -->
+  <div class="product-shop" id="beli">
+
+    <!-- LEFT: Gallery -->
+    <div class="gallery-col">
+      <div class="gallery-main">
+        <span class="gallery-badge" id="displayBadge">Edisi Perdana</span>
+        <img id="mainImg" src="assets/kotak rakara.png" alt="RAKARA BATIK">
+      </div>
+      <div class="gallery-thumbs" id="galleryThumbs">
+        <!-- Generated by JS -->
+      </div>
+    </div>
+
+    <!-- RIGHT: Info + Buy -->
+    <div class="product-info">
+      <div class="product-eyebrow" id="displayEyebrow">Cultural Experience Toy · Edisi Batik Nusantara</div>
+      <h1 id="displayTitle">RAKARA Batik — Experience Box</h1>
+      <div class="product-rating">
+        <span class="stars">★★★★★</span>
+        <span id="displayRating">4.9 · Uji pasar 300 unit</span>
+      </div>
+
+      <div class="product-price-row">
+        <div class="price-now" id="displayPriceNow">Rp139.000</div>
+        <div class="price-was" id="displayPriceWas">Rp169.000</div>
+        <span class="price-tag" id="displayPriceTag">Hemat 18%</span>
+      </div>
+
+      <p class="product-lede" id="displayLede">
+        Kit budaya yang mengajarkan lewat bermain, bukan menghafal. Anak usia 8–15 tahun berkarya batik asli, ditemani komik hero dan tutorial digital.
+      </p>
+
+      <div class="key-chips">
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 L20 6 V12 C20 17 16.5 20.5 12 22 C7.5 20.5 4 17 4 12 V6 Z"/><path d="M9 12 L11 14 L15.5 9"/></svg>
+          Non-toxic · SNI
+        </span>
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21 C4 16.5 7.5 14 12 14 C16.5 14 20 16.5 20 21"/></svg>
+          Usia 8–15 th
+        </span>
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9 H21"/></svg>
+          Screen-free + QR
+        </span>
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 L4 7 V12 C4 17 7.5 20.5 12 21 C16.5 20.5 20 17 20 12 V7 Z"/></svg>
+          Royalti ke perajin
+        </span>
+      </div>
+
+      <div class="buy-panel" id="buyPanel">
+        <div class="qty-row">
+          <span class="qty-label">Jumlah</span>
+          <div class="qty-control">
+            <button type="button" class="qty-btn" id="qtyMinus" aria-label="Kurangi jumlah">−</button>
+            <span class="qty-val" id="qtyVal" aria-live="polite">1</span>
+            <button type="button" class="qty-btn" id="qtyPlus" aria-label="Tambah jumlah">+</button>
+          </div>
+        </div>
+        <div class="subtotal-row">
+          <span class="label">Subtotal</span>
+          <span class="value" id="subtotalVal">Rp139.000</span>
+        </div>
+        <div class="buy-actions">
+          <a href="#" class="btn btn-solid" id="btnOrder">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M6 6 L4 2 H1"/></svg>
+            Pesan Sekarang
+          </a>
+          <a href="mailto:customer-service@rakara.com?subject=Tanya%20Paket%20Sekolah%20RAKARA" class="btn btn-outline">
+            Tanya paket sekolah / kelas
+          </a>
+        </div>
+        <div class="stock-note">
+          <span class="stock-dot"></span>
+          Stok tersedia · Pengiriman 2–4 hari kerja
+        </div>
+      </div>
+
+      <div class="trust-mini">
+        <div class="trust-mini-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 L20 6 V12 C20 17 16.5 20.5 12 22 C7.5 20.5 4 17 4 12 V6 Z"/><path d="M9 12 L11 14 L15.5 9"/></svg>
+          Bahan non-toxic, aman untuk anak
+        </div>
+        <div class="trust-mini-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 L4 7 V12 C4 17 7.5 20.5 12 21 C16.5 20.5 20 17 20 12 V7 Z"/></svg>
+          Mengacu SNI Keamanan Mainan
+        </div>
+        <div class="trust-mini-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21 C4 16.5 7.5 14 12 14 C16.5 14 20 16.5 20 21"/></svg>
+          Dikurasi bersama perajin batik asli
+        </div>
+        <div class="trust-mini-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9 H21 M8 4 V2 M16 4 V2"/></svg>
+          Kurikulum budaya, bukan cuma kerajinan
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kawung" id="kawung-1"></div>
+
+  <!-- WHAT'S IN THE BOX -->
+  <section>
+    <div class="section-head">
+      <div class="eyebrow-num">Isi Kotak</div>
+      <h2>Satu sistem pengalaman utuh</h2>
+      <p id="inboxSubtitle">Setiap komponen dirancang agar anak bergerak dari membuka kotak sampai berkarya dan mengoleksi hero.</p>
+    </div>
+    <div class="inbox-grid" id="inboxGrid">
+      <!-- Generated by JS -->
+    </div>
+  </section>
+
+  <div class="kawung" id="kawung-2"></div>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <div class="section-head">
+      <div class="eyebrow-num">Cara Pakai</div>
+      <h2>Tiga langkah, mulai berkarya</h2>
+    </div>
+    <div class="how-steps">
+      <div class="how-card">
+        <div class="how-num">1</div>
+        <h3>Buka &amp; temukan cerita</h3>
+        <p>Buka kotak, kenali hero, dan baca komik yang membawa makna motif batik.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">2</div>
+        <h3>Scan QR &amp; ikuti tutorial</h3>
+        <p>Pindai kode QR untuk video panduan membatik yang aman dan mudah diikuti.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">3</div>
+        <h3>Berkarya &amp; koleksi</h3>
+        <p>Buat batik sendiri, rakit hero, lalu bagikan karya di galeri komunitas RAKARA.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="kawung" id="kawung-3"></div>
+
+  <!-- SPECS -->
+  <section>
+    <div class="section-head">
+      <div class="eyebrow-num">Spesifikasi</div>
+      <h2>Detail produk</h2>
+    </div>
+    <div class="specs-table">
+      <div class="spec-row">
+        <div class="spec-label">Nama produk</div>
+        <div class="spec-value" id="specName">RAKARA Batik — Experience Box Edisi Batik Nusantara</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-label">Harga</div>
+        <div class="spec-value" id="specPrice">Rp139.000 / unit</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-label">Usia</div>
+        <div class="spec-value">8–15 tahun</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-label">Isi kit</div>
+        <div class="spec-value" id="specKit">Alat batik + komik + hero collectible + akses QR tutorial</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-label">Keamanan</div>
+        <div class="spec-value">Non-toxic, mengacu SNI Keamanan Mainan</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-label">Paket sekolah</div>
+        <div class="spec-value">Tersedia — hubungi kami untuk harga kelas</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-label">Pengiriman</div>
+        <div class="spec-value">2–4 hari kerja (setelah konfirmasi pembayaran)</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-label">Dampak</div>
+        <div class="spec-value">Royalti langsung ke perajin batik mitra</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section style="text-align:center; padding-bottom:72px;">
+    <div class="section-head center" style="margin-bottom:28px;">
+      <h2>Siap memulai petualangan budaya?</h2>
+      <p>Pesan RAKARA Batik untuk anak Anda, atau tanyakan paket kelas untuk sekolah dan komunitas.</p>
+    </div>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="#" id="finalCtaBtn" class="btn btn-solid" style="width:auto; padding:14px 32px;">
+        Pesan Sekarang
+      </a>
+      <a href="index.html" class="btn btn-outline" style="width:auto; padding:14px 32px;">
+        Kembali ke Beranda
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- Sticky buy bar -->
+<div class="sticky-buy" id="stickyBuy" role="region" aria-label="Pesan cepat">
+  <div class="sticky-buy-inner">
+    <div class="sticky-left">
+      <div class="sticky-meta">
+        <div class="name" id="stickyName">RAKARA Batik</div>
+        <div class="sticky-price" id="stickyPrice">Rp139.000</div>
+      </div>
+      <div class="sticky-qty qty-control">
+        <button type="button" class="qty-btn" id="stickyMinus" aria-label="Kurangi jumlah">−</button>
+        <span class="qty-val" id="stickyQtyVal" aria-live="polite">1</span>
+        <button type="button" class="qty-btn" id="stickyPlus" aria-label="Tambah jumlah">+</button>
+      </div>
+    </div>
+    <a href="#" class="btn btn-solid" id="stickyOrder">Pesan Sekarang</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <div class="foot-brand">RAKARA</div>
+      <div class="foot-meta">
+        Cultural Experience Toy Brand<br>
+        SMA Pesantren Unggul Al Bayan — Kabupaten Sukabumi, Jawa Barat<br>
+        Proposal Bisnis ALACAZAM 2026
+      </div>
+    </div>
+    <div class="foot-links">
+      <a href="index.html#edukasi">Edukasi</a>
+      <a href="index.html#produk">Produk</a>
+      <a href="index.html#kenapa">Kenapa RAKARA</a>
+      <a href="index.html#harga">Harga</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+  </div>
+  <div class="wrap foot-copy">© 2026 RAKARA. Where Culture Comes to Play.</div>
+</footer>
+
+<script>
+  // --- DATABASE 3 PRODUK ---
+  const PRODUCTS = {
+    p1: {
+      name: "RAKARA Pemula Kit",
+      badge: "Starter Edition",
+      eyebrow: "Starter Kit · Batik & Membatik Dasar",
+      rating: "4.8 · Uji coba 120 unit",
+      priceNow: 89000,
+      priceWas: 109000,
+      saveTag: "Hemat 18%",
+      lede: "Paket ekonomis berisi peralatan dasar membatik. Cocok untuk anak yang ingin mencoba pengalaman pertama membatik secara instan.",
+      inboxSubtitle: "Komponen dasar essentials untuk mulai membatik.",
+      inbox: [
+        { title: "Canting & Alat", desc: "Canting aman anak, kain pola dasar, dan tinta batik non-toxic." },
+        { title: "Buku Panduan", desc: "Buku petunjuk langkah demi langkah sederhana." },
+        { title: "Pola Kain Kawung", desc: "Kain katun bermotif siap diwarnai dan dibatik." },
+        { title: "Akses QR Dasar", desc: "Video panduan membatik dasar berdurasi 5 menit." }
+      ],
+      specKit: "Canting + tinta non-toxic + kain pola dasar + akses QR",
+      thumbs: [
+    { label: "Pemula Kit", text: "Pemula Kit", src: "assets/kotak rakara.png" },
+    { label: "Isi Starter", text: "Isi Kit", src: "assets/isi kit rakara.png" },
+    { label: "Kain", text: "Kain Batik", src: "assets/outline mega mendung.jpg" },
+]
+    },
+    p2: {
+      name: "RAKARA Batik — Experience Box",
+      badge: "Edisi Perdana",
+      eyebrow: "Cultural Experience Toy · Edisi Batik Nusantara",
+      rating: "4.9 · Uji pasar 300 unit",
+      priceNow: 139000,
+      priceWas: 169000,
+      saveTag: "Hemat 18%",
+      lede: "Kit budaya yang mengajarkan lewat bermain, bukan menghafal. Anak usia 8–15 tahun berkarya batik asli, ditemani komik hero dan tutorial digital.",
+      inboxSubtitle: "Setiap komponen dirancang agar anak bergerak dari membuka kotak sampai berkarya dan mengoleksi hero.",
+      inbox: [
+        { title: "Canting & alat batik", desc: "Canting aman anak, kain pola, tinta non-toxic, dan sarung tangan." },
+        { title: "Buku & komik hero", desc: "Panduan visual + petualangan hero budaya yang mudah diikuti." },
+        { title: "Hero collectible", desc: "Karakter cardboard 3D yang bisa dirakit, dimainkan, dan dikoleksi." },
+        { title: "Kode QR digital", desc: "Tutorial video, galeri karya, dan storytelling animasi hero." }
+      ],
+      specKit: "Alat batik + komik + hero collectible + akses QR tutorial",
+      thumbs: [
+        { label: "Box", text: "Experience Box", src: "assets/kotak rakara.png" },
+        { label: "Isi Kit", text: "Isi Kit", src: "assets/isi kit rakara.png" },
+        { label: "Hero", text: "Hero Character", src: "assets/collectible hero card.png" },
+      ]
+    },
+    p3: {
+      name: "RAKARA Master Bundling",
+      badge: "Edisi Lengkap",
+      eyebrow: "Ultimate Collector & Crafting Kit",
+      rating: "5.0 · Eksklusif",
+      priceNow: 219000,
+      priceWas: 259000,
+      saveTag: "Hemat 15%",
+      lede: "Pengalaman paling memuaskan! Mendapatkan 3 kain pola berbeda, set warna premium lengkap, komik edisi hardcover, serta collectible figure eksklusif.",
+      inboxSubtitle: "Paket komplit untuk anak yang ingin menguasai berbagai motif batik nusantara.",
+      inbox: [
+        { title: "Set Canting & Tinta Full", desc: "2 jenis canting, 4 warna tinta non-toxic, & kompor lilin elektrik aman." },
+        { title: "3 Motif Kain Pola", desc: "Kain pola Parang, Kawung, dan Mega Mendung." },
+        { title: "Komik Hardcover + Hero", desc: "Komik edisi kolektor dan 2 figur hero 3D rakitan." },
+        { title: "VIP Access QR", desc: "Akses seluruh modul video tutorial & sertifikat digital." }
+      ],
+      specKit: "Set Alat Full + 3 Kain Motif + Komik Hardcover + 2 Hero Figure + Akses VIP QR",
+      thumbs: [
+   { label: "Pemula Kit", text: "Pemula Kit", src: "assets/kotak rakara.png" },
+   { label: "Isi Starter", text: "Isi Kit", src: "assets/isi kit rakara pro.png" },
+   { label: "Kain", text: "Kain Batik", src: "assets/3d aksa.png" },
+ ]
+    }
+  };
+
+  let currentProductId = 'p2';
+  let qty = 1;
+
+  function formatRp(n) {
+    return 'Rp' + n.toLocaleString('id-ID');
+  }
+
+  function selectProduct(pid) {
+    if(!PRODUCTS[pid]) return;
+    currentProductId = pid;
+
+    // Update active class pada kartu pilihan
+    document.querySelectorAll('.product-card-option').forEach(card => {
+      card.classList.toggle('active', card.getAttribute('data-pid') === pid);
+    });
+
+    const p = PRODUCTS[pid];
+
+    // Update teks detail
+    document.getElementById('breadCurrent').textContent = p.name;
+    document.getElementById('displayBadge').textContent = p.badge;
+    document.getElementById('displayEyebrow').textContent = p.eyebrow;
+    document.getElementById('displayTitle').textContent = p.name;
+    document.getElementById('displayRating').textContent = p.rating;
+    document.getElementById('displayPriceNow').textContent = formatRp(p.priceNow);
+    document.getElementById('displayPriceWas').textContent = formatRp(p.priceWas);
+    document.getElementById('displayPriceTag').textContent = p.saveTag;
+    document.getElementById('displayLede').textContent = p.lede;
+
+    // Specs
+    document.getElementById('specName').textContent = p.name;
+    document.getElementById('specPrice').textContent = formatRp(p.priceNow) + ' / unit';
+    document.getElementById('specKit').textContent = p.specKit;
+
+    // Inbox Section
+    document.getElementById('inboxSubtitle').textContent = p.inboxSubtitle;
+    const inboxGrid = document.getElementById('inboxGrid');
+    inboxGrid.innerHTML = '';
+    p.inbox.forEach(item => {
+      inboxGrid.innerHTML += `
+        <div class="inbox-card">
+          <div class="inbox-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="34" height="34" rx="4"/><path d="M16 24 H32 M24 16 V32"/></svg>
+          </div>
+          <h3>${item.title}</h3>
+          <p>${item.desc}</p>
+        </div>
+      `;
+    });
+
+    // Thumbs Gallery
+    const thumbsContainer = document.getElementById('galleryThumbs');
+    thumbsContainer.innerHTML = '';
+    p.thumbs.forEach((t, idx) => {
+      const activeClass = idx === 0 ? 'active' : '';
+      thumbsContainer.innerHTML += `
+        <button type="button" class="thumb ${activeClass}" data-src="${t.src}" aria-label="${t.label}">
+          <img src="${t.src}" alt="${t.label}">
+        </button>
+      `;
+    });
+
+    // Update main image
+    const mainImg = document.getElementById('mainImg');
+    if(mainImg && p.thumbs.length > 0) {
+      mainImg.src = p.thumbs[0].src;
+    }
+
+    // Attach listeners to new thumbs
+    document.querySelectorAll('.thumb').forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+        const src = thumb.getAttribute('data-src');
+        if (src && mainImg) {
+          mainImg.style.opacity = '0.4';
+          setTimeout(() => {
+            mainImg.src = src;
+            mainImg.style.opacity = '1';
+          }, 150);
+        }
+      });
+    });
+
+    // Reset Qty & Sync UI
+    qty = 1;
+    updateQtyUI();
+  }
+
+  function updateQtyUI() {
+    const p = PRODUCTS[currentProductId];
+    const total = p.priceNow * qty;
+
+    document.getElementById('qtyVal').textContent = qty;
+    document.getElementById('stickyQtyVal').textContent = qty;
+    document.getElementById('subtotalVal').textContent = formatRp(total);
+    document.getElementById('stickyPrice').textContent = formatRp(total);
+    document.getElementById('stickyName').textContent = p.name;
+
+    document.getElementById('qtyMinus').disabled = qty <= 1;
+    document.getElementById('stickyMinus').disabled = qty <= 1;
+    document.getElementById('qtyPlus').disabled = qty >= 99;
+    document.getElementById('stickyPlus').disabled = qty >= 99;
+
+    const body = encodeURIComponent(
+      'Halo RAKARA,\n\nSaya ingin memesan ' + p.name + '.\nJumlah: ' + qty + '\nSubtotal: ' + formatRp(total) + '\n\nTerima kasih.'
+    );
+    const href = 'mailto:customer-service@rakara.com?subject=Pesan%20' + encodeURIComponent(p.name) + '&body=' + body;
+    
+    document.getElementById('btnOrder').href = href;
+    document.getElementById('stickyOrder').href = href;
+    document.getElementById('finalCtaBtn').href = href;
+    document.getElementById('finalCtaBtn').textContent = 'Pesan ' + p.name + ' — ' + formatRp(total);
+  }
+
+  // Event Listeners for Qty
+  document.getElementById('qtyPlus').addEventListener('click', () => { qty++; updateQtyUI(); });
+  document.getElementById('qtyMinus').addEventListener('click', () => { if(qty > 1) { qty--; updateQtyUI(); } });
+  document.getElementById('stickyPlus').addEventListener('click', () => { qty++; updateQtyUI(); });
+  document.getElementById('stickyMinus').addEventListener('click', () => { if(qty > 1) { qty--; updateQtyUI(); } });
+
+  // Mobile nav toggle
+  const toggle = document.getElementById('navtoggle');
+  const links = document.getElementById('navlinks');
+  if (toggle && links) {
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
+  }
+
+  // Sticky buy bar observer
+  const stickyBuy = document.getElementById('stickyBuy');
+  const buyPanel = document.getElementById('buyPanel');
+  if (stickyBuy && buyPanel && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const show = !entry.isIntersecting;
+        stickyBuy.classList.toggle('visible', show);
+        document.body.classList.toggle('has-sticky-buy', show);
+      });
+    }, { threshold: 0 });
+    io.observe(buyPanel);
+  }
+
+  // Kawung pattern generators
+  function kawungSVG(id){
+    const el = document.getElementById(id);
+    if(!el) return;
+    const uid = 'kw-' + id;
+    el.innerHTML = `
+      <svg viewBox="0 0 400 26" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <pattern id="${uid}" width="34" height="26" patternUnits="userSpaceOnUse">
+            <g fill="none" stroke="#FFB627" stroke-width="1" opacity="0.28">
+              <ellipse cx="9" cy="13" rx="7" ry="4.2" transform="rotate(45 9 13)"/>
+              <ellipse cx="17" cy="13" rx="7" ry="4.2" transform="rotate(-45 17 13)"/>
+              <circle cx="13" cy="13" r="1.4" fill="#FFD65A" stroke="none" opacity="0.7"/>
+            </g>
+          </pattern>
+        </defs>
+        <rect width="400" height="26" fill="url(#${uid})"/>
+      </svg>`;
+  }
+  ['kawung-1','kawung-2','kawung-3'].forEach(id => kawungSVG(id));
+
+  // Initialize Default Selected Product (p2)
+  selectProduct('p2');
+</script>
+
+</body>
+</html>
